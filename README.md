@@ -94,7 +94,7 @@
     <main>
         <div class="left-column">
             <section class="profile">
-                <img src="profile.jpg" alt="Arham Salman">
+                <img src="assets/Screenshot 2024-12-25 165858.png" alt="Arham Salman">
                 <p>Hello! I'm Arham Salman, a graduate student in Biostatistics & Data Science at UTHealth Houston. Passionate about leveraging data to drive impactful research and solutions.</p>
             </section>
         </div>
