@@ -96,7 +96,7 @@
         <div class="left-column">
             <section class="profile">
                 <img src="assets/Screenshot 2024-12-25 165858.png" alt="Arham Salman">
-                <p>Hello! I'm Arham Salman, a graduate student in Biostatistics & Data Science at UTHealth Houston. Passionate about leveraging data to drive impactful research and solutions.</p>
+                <p>Hello! I'm Arham Salman, a first year Masters student in Biostatistics & Data Science at UTHealth Houston. My ambitions in Public Health aim to curtail disparities in healthcare treatment and accessibility for low income and marginalized populations.</p>
             </section>
         </div>
 
@@ -112,16 +112,16 @@
             <section id="research">
                 <h2>Research</h2>
                 <ul>
-                    <li>Graduate Research Assistant - McGovern Medical School</li>
-                    <li>SHIFT and UTMB Summer Institute Internships</li>
+                    <li>Biostatistics Research Intern - UTMB Summer Insitute of Biostatistics and Data Science (2023)</li>
+                    <li>Data Analyst Intern - UT SHIFT </li>
                 </ul>
             </section>
 
             <section id="projects">
                 <h2>Projects</h2>
                 <ul>
-                    <li><a href="path/to/diabetes-dataset-analysis.zip" download>Diabetes Dataset Analysis</a></li>
-                    <li><a href="path/to/health-projects.zip" download>Various health-related projects through SASE and MSA</a></li>
+                    <li><a href="assets/Big Data Soccer Team Analysis Project" download>Big Data Soccer Team Analysis</a></li>
+                    <li><a href="assets/nhanes.Rmd" download>Exploring the Link Between Household Income And Cardiovascular Disease</a></li>
                 </ul>
             </section>
 
@@ -139,7 +139,8 @@
                 <h2>Contact Information</h2>
                 <ul class="contact-list">
                     <li>Email: <a href="mailto:arham.salman@uth.tmc.edu">arham.salman@uth.tmc.edu</a></li>
-                    <li>Phone: 281-650-5036</li>
+                    <li>Phone: 281-650-5936</li>
+                    <li><a href="assets/Resume.pdf" target="_blank">View My Resume</a></li>
                 </ul>
             </section>
         </div>
