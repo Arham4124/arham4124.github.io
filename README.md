@@ -17,8 +17,8 @@
             justify-content: space-between;
         }
         header {
-            background: #E6E6FA;
-            color: #333;
+            background: #BF5700;
+            color: #fff;
             padding: 10px 0;
             text-align: center;
             width: 100%;
@@ -45,7 +45,7 @@
             margin: 0;
         }
         h2 {
-            border-bottom: 2px solid #E6E6FA;
+            border-bottom: 2px solid #BF5700;
             padding-bottom: 5px;
         }
         ul {
@@ -58,8 +58,8 @@
         footer {
             text-align: center;
             padding: 10px;
-            background: #E6E6FA;
-            color: #333;
+            background: #BF5700;
+            color: #fff;
             margin-top: 20px;
             width: 100%;
             position: absolute;
@@ -67,7 +67,7 @@
             left: 0;
         }
         a {
-            color: #E6E6FA;
+            color: #BF5700;
             text-decoration: none;
         }
         a:hover {
@@ -77,7 +77,7 @@
             width: 150px;
             height: 150px;
             border-radius: 50%;
-            border: 2px solid #E6E6FA;
+            border: 2px solid #BF5700;
         }
         .profile p {
             margin-top: 10px;
@@ -139,4 +139,3 @@
     </footer>
 </body>
 </html>
-
