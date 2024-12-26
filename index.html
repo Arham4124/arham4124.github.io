@@ -76,6 +76,9 @@
             border-radius: 50%;
             margin-bottom: 15px;
         }
+        .profile p {
+            line-height: 1.6;
+        }
         footer {
             text-align: center;
             padding: 20px;
@@ -86,12 +89,16 @@
             width: 100%;
         }
         .icon {
-            width: 32px;
-            height: 32px;
+            width: 28px;
+            height: 28px;
             vertical-align: middle;
             margin-right: 10px;
             border-radius: 50%;
             object-fit: cover;
+        }
+        .icon.linkedin {
+            width: 30px;
+            height: 30px;
         }
     </style>
 </head>
@@ -138,9 +145,9 @@
                 <h2>Links</h2>
                 <ul>
                     <li><a href="https://github.com/Arham4124" target="_blank">
-                        <img src="https://cdn.worldvectorlogo.com/logos/github-icon-2.svg" class="icon" alt="GitHub Logo">GitHub</a></li>
+                        <img src="https://cdn.worldvectorlogo.com/logos/github-icon-2.svg" class="icon" alt="GitHub Logo">GitHub Profile</a></li>
                     <li><a href="https://www.linkedin.com/in/arham-salman12d" target="_blank">
-                        <img src="https://static.vecteezy.com/system/resources/previews/023/986/970/non_2x/linkedin-logo-linkedin-logo-transparent-linkedin-icon-transparent-free-free-png.png" class="icon" alt="LinkedIn Logo">LinkedIn</a></li>
+                        <img src="https://static.vecteezy.com/system/resources/previews/023/986/970/non_2x/linkedin-logo-linkedin-logo-transparent-linkedin-icon-transparent-free-free-png.png" class="icon linkedin" alt="LinkedIn Logo">LinkedIn</a></li>
                     <li><a href="https://orcid.org/0009-0004-3579-8849" target="_blank">
                         <img src="https://becker.wustl.edu/wp-content/uploads/orcid.png" class="icon" alt="ORCID Logo">0009-0004-3579-8849</a></li>
                 </ul>
