@@ -12,20 +12,34 @@
             padding: 0;
             background-color: #f4f4f9;
             color: #333;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
         }
         header {
             background: #0074D9;
             color: #fff;
             padding: 10px 0;
             text-align: center;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
         }
-        section {
+        main {
+            display: flex;
+            margin-top: 60px;
+            width: 100%;
+        }
+        .left-column {
+            width: 30%;
             padding: 20px;
-            margin: 20px auto;
-            max-width: 800px;
             background: #fff;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            border-right: 1px solid #ddd;
+        }
+        .right-column {
+            width: 70%;
+            padding: 20px;
         }
         h1 {
             margin: 0;
@@ -47,6 +61,10 @@
             background: #0074D9;
             color: #fff;
             margin-top: 20px;
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+            left: 0;
         }
         a {
             color: #0074D9;
@@ -55,6 +73,17 @@
         a:hover {
             text-decoration: underline;
         }
+        .profile img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 2px solid #0074D9;
+        }
+        .profile p {
+            margin-top: 10px;
+            font-size: 1.2em;
+            color: #555;
+        }
     </style>
 </head>
 <body>
@@ -62,37 +91,48 @@
         <h1>Arham Salman's Portfolio</h1>
     </header>
 
-    <section id="education">
-        <h2>Education</h2>
-        <ul>
-            <li>Master of Science in Biostatistics & Data Science - UTHealth Houston (2024-2026)</li>
-            <li>Bachelor of Science in Public Health - The University of Texas at Austin (2020-2024)</li>
-        </ul>
-    </section>
+    <main>
+        <div class="left-column">
+            <section class="profile">
+                <img src="profile.jpg" alt="Arham Salman">
+                <p>Hello! I'm Arham Salman, a graduate student in Biostatistics & Data Science at UTHealth Houston. Passionate about leveraging data to drive impactful research and solutions.</p>
+            </section>
+        </div>
 
-    <section id="research">
-        <h2>Research</h2>
-        <ul>
-            <li>Graduate Research Assistant - McGovern Medical School</li>
-            <li>SHIFT and UTMB Summer Institute Internships</li>
-        </ul>
-    </section>
+        <div class="right-column">
+            <section id="education">
+                <h2>Education</h2>
+                <ul>
+                    <li>Master of Science in Biostatistics & Data Science - UTHealth Houston (2024-2026)</li>
+                    <li>Bachelor of Science in Public Health - The University of Texas at Austin (2020-2024)</li>
+                </ul>
+            </section>
 
-    <section id="projects">
-        <h2>Projects</h2>
-        <ul>
-            <li>Diabetes Dataset Analysis</li>
-            <li>Various health-related projects through SASE and MSA</li>
-        </ul>
-    </section>
+            <section id="research">
+                <h2>Research</h2>
+                <ul>
+                    <li>Graduate Research Assistant - McGovern Medical School</li>
+                    <li>SHIFT and UTMB Summer Institute Internships</li>
+                </ul>
+            </section>
 
-    <section id="links">
-        <h2>Links</h2>
-        <ul>
-            <li><a href="https://github.com/arhamsalman" target="_blank">GitHub Profile</a></li>
-            <li><a href="https://linkedin.com/in/arhamsalman" target="_blank">LinkedIn</a></li>
-        </ul>
-    </section>
+            <section id="projects">
+                <h2>Projects</h2>
+                <ul>
+                    <li><a href="path/to/diabetes-dataset-analysis.zip" download>Diabetes Dataset Analysis</a></li>
+                    <li><a href="path/to/health-projects.zip" download>Various health-related projects through SASE and MSA</a></li>
+                </ul>
+            </section>
+
+            <section id="links">
+                <h2>Links</h2>
+                <ul>
+                    <li><a href="https://github.com/arhamsalman" target="_blank">GitHub Profile</a></li>
+                    <li><a href="https://linkedin.com/in/arhamsalman" target="_blank">LinkedIn</a></li>
+                </ul>
+            </section>
+        </div>
+    </main>
 
     <footer>
         <p>&copy; 2024 Arham Salman. All rights reserved.</p>
