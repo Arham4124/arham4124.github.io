@@ -138,7 +138,7 @@
                 <h2>Links</h2>
                 <ul>
                     <li><a href="https://github.com/Arham4124" target="_blank">
-                        <img src="https://cdn.worldvectorlogo.com/logos/github-icon-2.svg" class="icon" alt="GitHub Logo">GitHub Profile</a></li>
+                        <img src="https://cdn.worldvectorlogo.com/logos/github-icon-2.svg" class="icon" alt="GitHub Logo">GitHub</a></li>
                     <li><a href="https://www.linkedin.com/in/arham-salman12d" target="_blank">
                         <img src="https://static.vecteezy.com/system/resources/previews/023/986/970/non_2x/linkedin-logo-linkedin-logo-transparent-linkedin-icon-transparent-free-free-png.png" class="icon" alt="LinkedIn Logo">LinkedIn</a></li>
                     <li><a href="https://orcid.org/0009-0004-3579-8849" target="_blank">
