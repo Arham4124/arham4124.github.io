@@ -6,45 +6,44 @@
     <title>Arham Salman's Portfolio</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
+            font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f9;
+            background-color: #f8f9fa;
             color: #333;
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
         }
         header {
-            background: #BF5700;
-            color: #fff;
-            padding: 10px 0;
+            background-color: #BF5700;
+            color: white;
+            padding: 20px 0;
             text-align: center;
-            width: 100%;
-            position: absolute;
-            top: 0;
-            left: 0;
+            font-size: 1.5em;
+            font-weight: bold;
         }
         main {
             display: flex;
-            margin-top: 60px;
-            width: 100%;
+            flex-wrap: wrap;
+            margin: 20px;
+            gap: 20px;
+        }
+        .left-column, .right-column {
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
         .left-column {
-            width: 30%;
-            padding: 20px;
-            background: #fff;
-            border-right: 1px solid #ddd;
+            flex: 1;
+            max-width: 300px;
         }
         .right-column {
-            width: 70%;
-            padding: 20px;
-        }
-        h1 {
-            margin: 0;
+            flex: 2;
+            min-width: 500px;
         }
         h2 {
+            color: #BF5700;
+            font-size: 1.2em;
+            margin-bottom: 10px;
             border-bottom: 2px solid #BF5700;
             padding-bottom: 5px;
         }
@@ -53,48 +52,44 @@
             padding: 0;
         }
         ul li {
-            padding: 5px 0;
-        }
-        footer {
-            text-align: center;
-            padding: 10px;
-            background: #BF5700;
-            color: #fff;
-            margin-top: 20px;
-            width: 100%;
-            position: absolute;
-            bottom: 0;
-            left: 0;
+            margin-bottom: 10px;
         }
         a {
-            color: #000;
+            color: #BF5700;
             text-decoration: none;
         }
         a:hover {
             text-decoration: underline;
         }
         .profile img {
-            width: 150px;
-            height: 150px;
+            width: 100%;
+            max-width: 200px;
+            height: auto;
             border-radius: 50%;
-            border: 2px solid #BF5700;
+            margin-bottom: 15px;
         }
-        .profile p {
-            margin-top: 10px;
-            font-size: 1.2em;
-            color: #555;
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #BF5700;
+            color: white;
+            margin-top: 20px;
+            font-size: 0.9em;
+        }
+        .contact-list {
+            font-size: 1em;
         }
         .icon {
             width: 20px;
             height: 20px;
             vertical-align: middle;
-            margin-right: 5px;
+            margin-right: 10px;
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Arham Salman's Portfolio</h1>
+        Arham Salman's Portfolio
     </header>
 
     <main>
@@ -140,7 +135,7 @@
 
             <section id="contact">
                 <h2>Contact Information</h2>
-                <ul>
+                <ul class="contact-list">
                     <li>Email: <a href="mailto:arham.salman@uth.tmc.edu">arham.salman@uth.tmc.edu</a></li>
                     <li>Phone: 281-650-5036</li>
                 </ul>
@@ -149,7 +144,7 @@
     </main>
 
     <footer>
-        <p>&copy; 2024 Arham Salman. All rights reserved.</p>
+        &copy; 2024 Arham Salman. All rights reserved.
     </footer>
 </body>
 </html>
