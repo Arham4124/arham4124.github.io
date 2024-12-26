@@ -1,0 +1,513 @@
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+```
+
+## Demographic Data
+```{r}
+download.file("https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/P_DEMO.XPT", tf <- tempfile(), mode="wb")
+DEMO <- foreign::read.xport(tf)
+saveRDS(DEMO, file="C:\\NHANES\\DATA\\DEMO.rds")
+demographics <- DEMO %>%
+  filter(RIDAGEYR >= 25 & RIDAGEYR <=79)
+
+#statistical tests
+range(demographics$RIDAGEYR)
+mean(demographics$INDFMPIR, na.rm = TRUE)
+boxplot(demographics$INDFMPIR, na.rm = TRUE, main="Ratio of Family Income to Poverty", ylab= "Ratio" + theme_minimal())
+sd(demographics$INDFMPIR, na.rm = TRUE)
+summary(demographics$INDFMPIR)
+
+#counts non NA and NA values for income 
+sum(!is.na(demographics$INDFMPIR))
+sum(is.na(demographics$INDFMPIR))
+
+#counts non NA and NA values for age
+sum(!is.na(demographics$RIDAGEYR))
+sum(is.na(demographics$RIDAGEYR))
+
+#percentage of NA values
+colMeans(is.na(demographics)*100)
+
+is.na(innerjointest)
+sum(is.na(innerjointest$DID260))
+```
+
+
+## Diabetes Data
+``` {r}
+download.file("https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/P_DIQ.XPT", tf <- tempfile(), mode="wb")
+diabetes <- foreign::read.xport(tf)
+saveRDS(diabetes, file="C:\\NHANES\\DATA\\diabetes.rds")
+
+#analysis of diabetic data
+sum(diabetes$DIQ010 == "1")/(sum(diabetes$DIQ010 == "1") + sum(diabetes$DIQ010 == "2"))*100
+sum(diabetes$DIQ010 == '2')
+colMeans(is.na(diabetes)*100)
+
+(sum(is.na(leftjointest$BMXBMI))/7865) * 100
+(sum(is.na(leftjointest$FIAINTRP))/7865) * 100
+
+navalues <- apply(leftjointest, 2, function(x){(sum(is.na(x))/7865) * 100})
+write.csv(navalues, "navalues.csv")
+```
+
+
+
+## Blood Pressure & Cholesterol
+```{r}
+#bpc data
+download.file("https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/P_BPQ.XPT", tf <- tempfile(), mode="wb")
+bpc <- foreign::read.xport(tf)
+saveRDS(bpc, file="C:\\NHANES\\DATA\\bpc.rds")
+
+boxplot(bpc$BPQ090D, na.rm = TRUE, main = "Prescribed medication for high cholesterol", ylab = "Ratio")
+sum(bpc$BPQ090 == "1", na.rm = TRUE)/(sum(bpc$BPQ090 == "1", na.rm = TRUE) + sum(bpc$BPQ090 == "2", na.rm =TRUE)) * 100
+
+colMeans(is.na(oscbp)*100)
+
+#missing and present values for bpc
+sum(!is.na(bpc$BPQ090D))
+sum(is.na(bpc$BPQ090D))
+
+#oscbp data
+download.file('https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/P_BPXO.XPT', tf <- tempfile(), mode="wb")
+oscbp <- foreign::read.xport(tf)
+saveRDS(bpc, file="C:\\NHANES\\DATA\\bpc.rds")
+
+#oscbp tests
+(sum(oscbp$BPXOSY1, na.rm = TRUE) + sum(oscbp$BPXOSY2, na.rm = TRUE) + sum(oscbp$BPXOSY3, na.rm = TRUE)) / (sum(!is.na(oscbp$BPXOSY1)) + sum(!is.na(oscbp$BPXOSY2)) + sum(!is.na(oscbp$BPXOSY3)))
+(sum(oscbp$BPXODI1, na.rm = TRUE) + sum(oscbp$BPXODI2, na.rm = TRUE) + sum(oscbp$BPXODI3, na.rm = TRUE)) / (sum(!is.na(oscbp$BPXODI1)) + sum(!is.na(oscbp$BPXODI2)) + sum(!is.na(oscbp$BPXODI3)))
+
+
+range(oscbp$BPXOSY3, na.rm = TRUE)
+boxplot(oscbp$BPXOSY1,oscbp$BPXOSY2,oscbp$BPXOSY3, main = 'Three Systolic Oscillometric Readings from 2017-2020', ylab = 'mg/dl', col = 'light blue')
+boxplot(oscbp$BPXODI1,oscbp$BPXODI2,oscbp$BPXODI3, main = 'Three Diastolic Oscillometric Readings from 2017-2020', ylab = 'mg/dl', col = 'light blue')
+
+download.file("https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/P_TCHOL.XPT", tf <- tempfile(), mode="wb")
+tchol <- foreign::read.xport(tf)
+saveRDS(tchol, file="C:\\NHANES\\DATA\\bpc.rds")
+
+mean(tchol$LBXTC, na.rm = TRUE)
+range(tchol$LBXTC, na.rm = TRUE)
+boxplot(tchol$LBXTC, na.rm = TRUE, main = "Total Cholesterol mg/dL", ylab = "Frequency", col = 'light blue')
+
+#missing and present values for cholesterol
+sum(!is.na(tchol$LBXTC)) + sum(is.na(tchol$LBXTC))
+
+```
+
+## Weight History
+```{r}
+download.file("https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/P_BMX.XPT", tf <- tempfile(), mode="wb")
+weight <- foreign::read.xport(tf)
+saveRDS(weight, file="C:\\NHANES\\DATA\\weight.rds")
+weight <- weight %>%
+  mutate(obese = case_when(BMXBMI >= 30 ~ 'YES', BMXBMI < 30 ~ 'NO'))
+sum(weight$obese == "YES", na.rm = TRUE)/(sum(weight$obese == "NO", na.rm = TRUE) + sum(weight$obese == "YES", na.rm =TRUE)) * 100 #percentage of obese subjects
+
+sum(!is.na(weight$obese)) + sum(is.na(weight$obese))
+
+#range of BMI
+range(weight$BMXBMI, na.rm = TRUE)
+#boxplot of BMI
+boxplot(weight$BMXBMI, ylab = 'BMI', col = 'light blue')
+sum(!is.na(weight$BMXBMI))
+colMeans(is.na(weight))*100
+```
+
+
+# Glygohemoglobin 
+```{r}
+download.file("https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/P_GHB.XPT", tf <- tempfile(), mode="wb")
+glycohemoglobin <- foreign::read.xport(tf)
+saveRDS(weight, file="C:\\NHANES\\DATA\\glycohemoglobin.rds")
+```
+# Merging Datasets
+``` {r}
+#2010 demographics
+download.file("https://wwwn.cdc.gov/Nchs/Nhanes/2009-2010/DEMO_F.XPT", tf <- tempfile(), mode="wb")
+demographics6 <- foreign::read.xport(tf)
+saveRDS(demographics6, file="C:\\NHANES\\DATA\\demographics6.rds")
+demographics6 <- demographics6 %>%
+  filter(RIDAGEYR >= 25 & RIDAGEYR <=79)
+
+#2010 diabetes
+download.file("https://wwwn.cdc.gov/Nchs/Nhanes/2009-2010/DIQ_F.XPT", tf <- tempfile(), mode="wb")
+diabetes6 <- foreign::read.xport(tf)
+saveRDS(diabetes6, file="C:\\NHANES\\DATA\\diabetes6.rds")
+
+#2010 blood pressure
+download.file("https://wwwn.cdc.gov/Nchs/Nhanes/2009-2010/BPQ_F.XPT", tf <- tempfile(), mode="wb")
+bpc6 <- foreign::read.xport(tf)
+saveRDS(bpc6, file="C:\\NHANES\\DATA\\bpc6.rds")
+download.file("https://wwwn.cdc.gov/Nchs/Nhanes/2009-2010/BPX_F.XPT", tf <- tempfile(), mode="wb")
+oscbp6 <- foreign::read.xport(tf)
+saveRDS(oscbp6, file="C:\\NHANES\\DATA\\oscbp6.rds")
+
+#2010 cholesterol
+download.file("https://wwwn.cdc.gov/Nchs/Nhanes/2009-2010/TCHOL_F.XPT", tf <- tempfile(), mode="wb")
+tchol6 <- foreign::read.xport(tf)
+saveRDS(tchol6, file="C:\\NHANES\\DATA\\tchol6.rds")
+
+#2010 weight
+download.file("https://wwwn.cdc.gov/Nchs/Nhanes/2009-2010/BMX_F.XPT", tf <- tempfile(), mode="wb")
+weight6 <- foreign::read.xport(tf)
+saveRDS(weight6, file="C:\\NHANES\\DATA\\weight6.rds")
+weight6 <- weight6 %>%
+  mutate(obese = case_when(BMXBMI >= 30 ~ 'YES', BMXBMI < 30 ~ 'NO'))
+
+#2010 glycohemoglobin
+download.file("https://wwwn.cdc.gov/Nchs/Nhanes/2009-2010/GHB_F.XPT", tf <- tempfile(), mode="wb")
+glycohemoglobin6 <- foreign::read.xport(tf)
+saveRDS(glycohemoglobin6, file="C:\\NHANES\\DATA\\weight6.rds")
+
+
+
+#merging dataset 2017-2020
+leftjointest <- demographics %>%
+  left_join(diabetes, by = 'SEQN')
+leftjointest <- leftjointest %>%
+  left_join(weight, by = 'SEQN')
+leftjointest <- leftjointest %>%
+  left_join(bpc, by = 'SEQN')
+leftjointest <- leftjointest %>%
+  left_join(oscbp, by = 'SEQN')
+leftjointest <- leftjointest %>%
+  left_join(tchol, by = 'SEQN')
+leftjointest <- leftjointest %>%
+  left_join(glycohemoglobin, by = 'SEQN')
+
+
+#leftjoin tests
+
+#demographics
+mean(leftjointest$INDFMPIR, na.rm = TRUE)
+sd(leftjointest$INDFMPIR, na.rm = TRUE)
+boxplot(leftjointest$INDFMPIR, na.rm = TRUE, col = 'light blue', main = "Ratio of Family Income to Poverty")
+summary(leftjointest$INDFMPIR)
+navalues <- apply(leftjointest, 2, function(x){(sum(is.na(x))/7865) * 100})
+navalues
+
+#diabetes
+sum(is.na(leftjointest$DIQ010))
+sum(leftjointest$DIQ010 == "1")/(sum(leftjointest$DIQ010 == "1") + sum(leftjointest$DIQ010 == "2"))*100
+sum(leftjointest$DIQ010 == '2')
+
+
+#oscbp
+(sum(leftjointest$BPXODI1, na.rm = TRUE) + sum(leftjointest$BPXODI2, na.rm = TRUE) + sum(leftjointest$BPXODI3, na.rm = TRUE)) / (sum(!is.na(leftjointest$BPXODI1)) + sum(!is.na(leftjointest$BPXODI2)) + sum(!is.na(leftjointest$BPXODI3)))
+(sum(oscbp$BPXODI1, na.rm = TRUE) + sum(oscbp$BPXODI2, na.rm = TRUE) + sum(oscbp$BPXODI3, na.rm = TRUE)) / (sum(!is.na(oscbp$BPXODI1)) + sum(!is.na(oscbp$BPXODI2)) + sum(!is.na(oscbp$BPXODI3)))
+sum(!is.na(oscbp$BPXOSY1))
+r1 <- leftjointest$SEQN[!is.na(leftjointest$BPXOSY1)]
+r2 <- leftjointest$SEQN[!is.na(leftjointest$BPXOSY2)]
+r3 <- leftjointest$SEQN[!is.na(leftjointest$BPXOSY3)]
+
+int1 <- intersect(r1, r2)
+int1 <- intersect(int1,r3)
+oscbp <- oscbp[oscbp$SEQN %in% int1, ]
+
+#tchol
+sum(leftjointest$BPQ090D == "1", na.rm = TRUE)/(sum(leftjointest$BPQ090D == "1", na.rm = TRUE) + sum(leftjointest$BPQ090D == "2", na.rm =TRUE)) * 100
+boxplot(leftjointest$LBXTC, col = 'light blue', main = 'Total Cholesterol mg/dL')
+sum(!is.na(leftjointest$LBXTC))
+
+
+#obesity
+sum(leftjointest$obese == "YES", na.rm = TRUE)/(sum(leftjointest$obese == "YES", na.rm = TRUE) + sum(leftjointest$obese == "NO", na.rm =TRUE)) * 100
+sum(!is.na(leftjointest$obese))
+boxplot(leftjointest$BMXBMI, col = 'light blue', main = 'BMI Distribution in NHANES 2017-2020 data', ylab = 'BMI')
+mean(weight1$BMXBMI, na.rm = TRUE)
+
+
+#bpc
+sum(leftjointest$BPQ090D == "1", na.rm = TRUE)/(sum(leftjointest$BPQ090D == "1", na.rm = TRUE) + sum(leftjointest$BPQ090D == "2", na.rm =TRUE)) * 100
+sum(!is.na(leftjointest$BPQ090D))
+print('1537   6328   19.543')
+```                         
+
+#creating master data pt 2.
+```{r}
+#2017-2020
+z1 <- leftjointest$SEQN[!is.na(leftjointest$INDFMPIR)]
+z2 <- leftjointest$SEQN[!is.na(leftjointest$RIDAGEYR)]
+z4 <- leftjointest$SEQN[!is.na(leftjointest$RIAGENDR)]
+z5 <- leftjointest$SEQN[!is.na(leftjointest$RIDRETH1)]
+z6 <- leftjointest$SEQN[!is.na(leftjointest$LBXGH)]
+z7 <- leftjointest$SEQN[!is.na(leftjointest$BMXBMI)]
+z8 <- leftjointest$SEQN[!is.na(leftjointest$LBXTC)]
+
+int2 <- intersect(z1,z2)
+int2 <- intersect(int2,z4)
+int2 <- intersect(int2,z5)
+int2 <- intersect(int2,z6)
+int2 <- intersect(int2,z7)
+int2 <- intersect(int2,z8)
+int2 <- intersect(int2,int1)
+
+leftjointest <- leftjointest[leftjointest$SEQN %in% int2, ]
+
+#2010
+
+#oscbp stuff
+r4 <- leftjointest2$SEQN[!is.na(leftjointest2$BPXSY1)]
+r5 <- leftjointest2$SEQN[!is.na(leftjointest2$BPXSY2)]
+r6 <- leftjointest2$SEQN[!is.na(leftjointest2$BPXSY3)]
+intbp2010 <- intersect(r4,r5)
+intbp2010 <- intersect(intbp2010,r6)
+
+p1 <- leftjointest2$SEQN[!is.na(leftjointest2$INDFMPIR)]
+p2 <- leftjointest2$SEQN[!is.na(leftjointest2$RIDAGEYR)]
+p4 <- leftjointest2$SEQN[!is.na(leftjointest2$RIAGENDR)]
+p5 <- leftjointest2$SEQN[!is.na(leftjointest2$RIDRETH1)]
+p6 <- leftjointest2$SEQN[!is.na(leftjointest2$LBXGH)]
+p7 <- leftjointest2$SEQN[!is.na(leftjointest2$BMXBMI)]
+p8 <- leftjointest2$SEQN[!is.na(leftjointest2$LBXTC)]
+
+int3 <- intersect(p1,p2)
+int3 <- intersect(int3,p4)
+int3 <- intersect(int3,p5)
+int3 <- intersect(int3,p6)
+int3 <- intersect(int3,p7)
+int3 <- intersect(int3,p8)
+int3 <- intersect(int3,intbp2010)
+
+leftjointest2 <- leftjointest2[leftjointest2$SEQN %in% int3, ]
+
+leftjointest2 <- demographics6 %>%
+  left_join(diabetes6, by = 'SEQN')
+leftjointest2 <- leftjointest2 %>%
+  left_join(weight6, by = 'SEQN')
+leftjointest2 <- leftjointest2 %>%
+  left_join(bpc6, by = 'SEQN')
+leftjointest2 <- leftjointest2 %>%
+  left_join(oscbp6, by = 'SEQN')
+leftjointest2 <- leftjointest2 %>%
+  left_join(tchol6, by = 'SEQN')
+leftjointest2 <- leftjointest2 %>%
+  left_join(glycohemoglobin6, by = 'SEQN')
+
+sum(!is.na(leftjointest2$LBXGH))
+```
+
+## lets work with both datasets
+``` {r}
+leftjointest <- leftjointest %>% 
+  select('INDFMPIR', 'RIDAGEYR', 'RIAGENDR', 'RIDRETH1', 'LBXGH', 'BMXBMI', 'LBXTC', 'BPXOSY1', 'SEQN')
+
+leftjointest2 <- leftjointest2 %>%
+  rename(BPXOSY1 = BPXSY1)
+leftjointest2 <- leftjointest2 %>% 
+  select('INDFMPIR', 'RIDAGEYR', 'RIAGENDR', 'RIDRETH1', 'LBXGH', 'BMXBMI', 'LBXTC', 'BPXOSY1', 'SEQN')
+
+merged.dataset <- full_join(leftjointest,leftjointest2, by = 'SEQN')
+leftjointest <- mutate(leftjointest, year = 1)
+leftjointest2 <- mutate(leftjointest2, year = 2)
+appended_dataset <- bind_rows(leftjointest, leftjointest2)
+
+
+# best fit linear model to predict blood pressure 2017-2020
+lm1 <- lm(formula = BPXOSY1 ~ INDFMPIR + RIDAGEYR + BMXBMI + factor(RIAGENDR) + factor(RIDRETH1), data = leftjointest)
+summary(lm1)
+AIC(lm1)
+
+# best fit linear model to predict hba1c in 2017-2020
+lm2 <- lm(formula = LBXGH ~ INDFMPIR + RIDAGEYR + BMXBMI + factor(RIAGENDR) + factor(RIDRETH1), data = leftjointest)
+summary(lm2)
+AIC(lm2)
+
+# best fit linear model to predict hba1c in 2010
+lm4 <- lm(formula = LBXGH ~ INDFMPIR + RIDAGEYR + BMXBMI + factor(RIAGENDR) + factor(RIDRETH1), data = leftjointest2)
+summary(lm4)
+AIC(lm4)
+
+# best fit linear model to predict bp over time
+lm5 <- lm(formula = BPXOSY1 ~ INDFMPIR + RIDAGEYR + BMXBMI + factor(RIAGENDR) + factor(RIDRETH1) + year, data = appended_dataset)
+summary(lm5)
+AIC(lm5)
+
+#best fit linear model to predict hba1c over time
+lm6 <- lm(formula = LBXGH ~ INDFMPIR + RIDAGEYR + BMXBMI + factor(RIAGENDR) + factor(RIDRETH1) + year, data = appended_dataset)
+summary(lm6)
+AIC(lm6)
+
+
+
+
+#10 year change in BP
+appended_dataset$Year <- factor(appended_dataset$year,
+                             labels = c("2009-2010", "2017-2020"))
+y_axis_lower_limit <- 75
+y_axis_upper_limit <- 175
+ggplot(appended_dataset, aes(x = Year, y = BPXOSY1)) + 
+  geom_boxplot(col = 'red', outlier.shape = NA)+
+  theme_classic() +
+   theme(
+    axis.title.x = element_blank(),
+    axis.text.x = element_text(size = 14),
+    axis.title.y = element_blank(),
+    axis.text.y = element_text(size = 14),   # Set the size of y-axis tick labels
+    axis.ticks.y = element_blank(),
+    plot.title = element_blank()
+  ) + coord_cartesian(ylim = c(y_axis_lower_limit, y_axis_upper_limit))
+qqnorm(appended_dataset$BPXOSY1) + qqline(appended_dataset$BPXOSY1)
+wilcoxtest <- wilcox.test(BPXOSY1 ~ year, data = appended_dataset)
+print(wilcoxtest)
+mean(leftjointest$BPXOSY1) - mean(leftjointest2$BPXOSY1)
+
+
+#10 year change in HBA1C
+y_axis_lower_limit <- 4
+y_axis_upper_limit <- 7
+ggplot(appended_dataset, aes(x = Year, y = LBXGH)) + 
+  geom_boxplot(col = 'red', outlier.shape = NA)+
+  theme_classic() +
+   theme(
+    axis.title.x = element_blank(),
+    axis.text.x = element_text(size = 14),
+    axis.title.y = element_blank(),
+    axis.text.y = element_text(size = 14),   # Set the size of y-axis tick labels
+    axis.ticks.y = element_blank(),
+    plot.title = element_blank()
+  ) + coord_cartesian(ylim = c(y_axis_lower_limit, y_axis_upper_limit))
+mean(leftjointest$LBXGH) - mean(leftjointest2$LBXGH)
+
+#poor vs non poor BP in 2017-2020
+leftjointest$income_group <- ifelse(leftjointest$INDFMPIR >= 2.5, "rich", "poor")
+y_axis_lower_limit <- 4
+y_axis_upper_limit <- 7
+ggplot(leftjointest, aes(x = income_group, y = BPXOSY1)) +
+  geom_boxplot(col = 'red', outlier.shape = NA) +
+  theme_classic() + 
+  theme(
+    axis.title.x = element_blank(),
+    axis.text.x = element_text(size = 16),
+    axis.title.y = element_blank(),
+    axis.text.y = element_text(size = 14),   # Set the size of y-axis tick labels
+    axis.ticks.y = element_blank(),
+    plot.title = element_blank() 
+  ) + coord_cartesian(ylim = c(y_axis_lower_limit, y_axis_upper_limit))
+mean(leftjointest$BPXOSY1) - mean(leftjointest2$BPXOSY1)
+wilcoxtest3 <- wilcox.test(BPXOSY1 ~ income_group, data = leftjointest)
+print(wilcoxtest3)
+bp.poor.1 = poordata[poordata$year == 1, ]$BPXOSY1 
+bp.poor.2 = poordata[poordata$year == 2, ]$BPXOSY1 
+mean(bp.poor.1) - mean(bp.rich.1)
+
+#poor vs non poor BP in 2009-2010
+leftjointest2$income_group2 <- ifelse(leftjointest2$INDFMPIR >= 2.5, "rich", "poor")
+ggplot(leftjointest2, aes(x = income_group2, y = BPXOSY1)) +
+  geom_boxplot(col = 'red', outlier.shape = NA) +
+  theme_classic() + 
+  theme(
+    axis.title.x = element_blank(),
+    axis.text.x = element_text(size = 16),
+    axis.title.y = element_blank(),
+    axis.text.y = element_text(size = 14),   # Set the size of y-axis tick labels
+    axis.ticks.y = element_blank(),
+    plot.title = element_blank() 
+  ) + coord_cartesian(ylim = c(y_axis_lower_limit, y_axis_upper_limit))
+Swilcoxtest4 <- wilcox.test(BPXOSY1 ~ income_group2, data = leftjointest2)
+print(wilcoxtest4)
+mean(bp.poor.2) - mean(bp.rich.2)
+
+
+
+#poor vs non poor HBA1C in 2017-2020
+y_axis_lower_limit <- 4
+y_axis_upper_limit <- 7
+ggplot(leftjointest, aes(x = income_group, y = LBXGH)) +
+  geom_boxplot(col = 'red', outlier.shape = NA) +
+  theme_classic() + theme(
+    axis.title.x = element_blank(),
+    axis.text.x = element_text(size = 16),
+    axis.title.y = element_blank(),
+    axis.text.y = element_text(size = 14),   # Set the size of y-axis tick labels
+    axis.ticks.y = element_blank(),
+    plot.title = element_blank() 
+  ) + coord_cartesian(ylim = c(y_axis_lower_limit, y_axis_upper_limit))
+wilcoxtest5 <- wilcox.test(LBXGH ~ income_group, data = leftjointest)
+print(wilcoxtest5)
+mean(hba1c.poor.1) - mean(hba1c.rich.1)
+
+#poor vs non poor HBA1C in 2009-2010
+ggplot(leftjointest2, aes(x = income_group2, y = LBXGH)) +
+  geom_boxplot(col = 'red', outlier.shape = NA) +
+  theme_classic() + theme(
+    axis.title.x = element_blank(),
+    axis.text.x = element_text(size = 16),
+    axis.title.y = element_blank(),
+    axis.text.y = element_text(size = 14),   # Set the size of y-axis tick labels
+    axis.ticks.y = element_blank(),
+    plot.title = element_blank() 
+  ) + coord_cartesian(ylim = c(y_axis_lower_limit, y_axis_upper_limit))
+wilcoxtest6 <- wilcox.test(LBXGH ~ income_group2, data = leftjointest2)
+print(wilcoxtest6)
+mean(hba1c.poor.2) - mean(hba1c.rich.2)
+
+#poor over time bp
+appended_dataset$income_group3 <- ifelse(appended_dataset$INDFMPIR >= 2.5, "rich", "poor")
+poordata <- appended_dataset %>%
+  filter(INDFMPIR <= 2.5)
+poordata$Year <- factor(poordata$year,
+                             labels = c("2010", "2017-2020"))
+ggplot(poordata, aes(x = INDFMPIR, y = BPXOSY1)) +
+  geom_point(col = 'tan') +
+  labs(x = "Poor PIR", y = "Blood Pressure") +
+  theme_classic() + facet_wrap(~Year, ncol = 3) +
+  ggtitle("Comparison of Blood Pressure in Low PIR Groups over 10 Years")
+bp.poor.1 = poordata[poordata$year == 1, ]$BPXOSY1 
+bp.poor.2 = poordata[poordata$year == 2, ]$BPXOSY1 
+wilcoxtest7 <- wilcox.test(bp.poor.1,bp.poor.2)
+print(wilcoxtest7)
+mean(bp.poor.1) - mean(bp.poor.2)
+
+#rich over time bp
+richdata <- appended_dataset %>%
+  filter(INDFMPIR > 2.5) %>%
+  mutate(Rich_PIR = ifelse(income_group3 == "rich", INDFMPIR, NA))
+richdata$Year <- factor(richdata$year,
+                             labels = c("2010", "2017-2020"))
+ggplot(richdata, aes(x = Rich_PIR, y = BPXOSY1)) +
+  geom_point(col = 'tan') +
+  labs(x = "Rich PIR", y = "Blood Pressure") +
+  theme_classic() + facet_wrap(~Year, ncol = 3) +
+  ggtitle("Comparison of Blood Pressure in High PIR Groups over 10 Years")
+bp.rich.1 = richdata[richdata$Year == '2010', ]$BPXOSY1 
+bp.rich.2 = richdata[richdata$Year == '2017-2020', ]$BPXOSY1 
+wilcoxtest8 <- wilcox.test(bp.rich.1,bp.rich.2)
+print(wilcoxtest8)
+mean(bp.rich.1) - mean(bp.rich.2)
+
+
+#poor over time HBA1C
+your_datapoor <- appended_dataset %>%
+  mutate(Poor_PIR = ifelse(income_group3 == "poor", INDFMPIR, NA))
+your_datapoor$Year <- factor(your_datapoor$year,
+                             labels = c("2010", "2017-2020"))
+ggplot(your_datapoor, aes(x = Poor_PIR, y = LBXGH)) +
+  geom_point(col = 'tan') +
+  labs(x = "Poor PIR", y = "Glycohemoglobin Percentage") +
+  theme_classic() + facet_wrap(~Year, ncol = 3) +
+  ggtitle("Comparison of HBA1C in Low PIR Groups over 10 Years")
+hba1c.poor.1 = poordata[poordata$year == 1, ]$LBXGH 
+hba1c.poor.2 = poordata[poordata$year == 2, ]$LBXGH 
+wilcoxtest9 <- wilcox.test(hba1c.poor.1,hba1c.poor.2)
+print(wilcoxtest9)
+mean(hba1c.poor.1) - mean(hba1c.poor.2)
+#rich over time HBA1C
+your_datarich <- appended_dataset %>%
+  mutate(Rich_PIR = ifelse(income_group3 == "rich", INDFMPIR, NA))
+your_datarich$Year <- factor(your_datarich$year,
+                             labels = c("2010", "2017-2020"))
+ggplot(your_datarich, aes(x = Rich_PIR, y = LBXGH)) +
+  geom_point(col = 'tan') +
+  labs(x = "Rich PIR", y = "Glycohemoglobin Percentage") +
+  theme_classic() + facet_wrap(~Year, ncol = 3) +
+  ggtitle("Comparison of HBA1C in High PIR Groups over 10 Years")
+hba1c.rich.1 = richdata[richdata$year == 1, ]$LBXGH 
+hba1c.rich.2 = richdata[richdata$year == 2, ]$LBXGH 
+wilcoxtest10 <- wilcox.test(hba1c.rich.1,hba1c.rich.2)
+print(wilcoxtest10)
+mean(hba1c.rich.1) - mean(hba1c.rich.2)
+```
