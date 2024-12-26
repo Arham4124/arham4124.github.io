@@ -113,7 +113,7 @@
                 <h2>Research</h2>
                 <ul>
                     <li>Biostatistics Research Intern - UTMB Summer Insitute of Biostatistics and Data Science (2023)</li>
-                    <li>Data Analyst Intern - UT SHIFT </li>
+                    <li>Data Analyst Intern - UT SHIFT (2023)</li>
                 </ul>
             </section>
 
