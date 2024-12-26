@@ -11,34 +11,32 @@
             padding: 0;
             background-color: #f8f9fa;
             color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
         header {
             background-color: #BF5700;
             color: white;
-            padding: 20px 0;
+            padding: 20px;
             text-align: center;
             font-size: 1.5em;
             font-weight: bold;
+            width: 100%;
         }
         main {
             display: flex;
-            flex-wrap: wrap;
-            margin: 20px;
+            max-width: 1200px;
+            width: 100%;
             gap: 20px;
-        }
-        .left-column, .right-column {
             padding: 20px;
+        }
+        .column {
+            flex: 1;
             background-color: white;
             border-radius: 8px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-        .left-column {
-            flex: 1;
-            max-width: 300px;
-        }
-        .right-column {
-            flex: 2;
-            min-width: 500px;
+            padding: 20px;
         }
         h2 {
             color: #BF5700;
@@ -73,11 +71,9 @@
             padding: 20px;
             background-color: #BF5700;
             color: white;
-            margin-top: 20px;
             font-size: 0.9em;
-        }
-        .contact-list {
-            font-size: 1em;
+            margin-top: 20px;
+            width: 100%;
         }
         .icon {
             width: 24px;
@@ -93,14 +89,14 @@
     </header>
 
     <main>
-        <div class="left-column">
+        <div class="column">
             <section class="profile">
                 <img src="assets/Screenshot 2024-12-25 165858.png" alt="Arham Salman">
-                <p>Hello! I'm Arham Salman, a first year Masters student in Biostatistics & Data Science at UTHealth Houston. My ambitions in Public Health aim to curtail disparities in healthcare treatment and accessibility for low income and marginalized populations.</p>
+                <p>Hello! I'm Arham Salman, a first-year Master's student in Biostatistics & Data Science at UTHealth Houston. My ambitions in Public Health aim to curtail disparities in healthcare treatment and accessibility for low-income and marginalized populations.</p>
             </section>
         </div>
 
-        <div class="right-column">
+        <div class="column">
             <section id="education">
                 <h2>Education</h2>
                 <ul>
@@ -112,7 +108,7 @@
             <section id="research">
                 <h2>Research</h2>
                 <ul>
-                    <li>Biostatistics Research Intern - UTMB Summer Insitute of Biostatistics and Data Science (2023)</li>
+                    <li>Biostatistics Research Intern - UTMB Summer Institute of Biostatistics and Data Science (2023)</li>
                     <li>Data Analyst Intern - UT SHIFT (2023)</li>
                 </ul>
             </section>
@@ -124,22 +120,29 @@
                     <li><a href="assets/nhanes.Rmd" download>Exploring the Link Between Household Income And Cardiovascular Disease</a></li>
                 </ul>
             </section>
+        </div>
 
-            <section id="hobbies-languages-skills">
-                <h2>Hobbies, Languages, and Technical Skills</h2>
-                <h3>Hobbies</h3>
+        <div class="column">
+            <section id="hobbies">
+                <h2>Hobbies</h2>
                 <ul>
                     <li>Basketball</li>
                     <li>Gaming</li>
                     <li>Fashion</li>
                     <li>Trying New Foods</li>
                 </ul>
-                <h3>Languages</h3>
+            </section>
+
+            <section id="languages">
+                <h2>Languages</h2>
                 <ul>
                     <li>English</li>
                     <li>Urdu</li>
                 </ul>
-                <h3>Technical Skills</h3>
+            </section>
+
+            <section id="skills">
+                <h2>Technical Skills</h2>
                 <ul>
                     <li>Python</li>
                     <li>R</li>
@@ -148,19 +151,9 @@
                 </ul>
             </section>
 
-            <section id="links">
-                <h2>Links</h2>
-                <ul>
-                    <li><a href="https://github.com/Arham4124" target="_blank">
-                        <img src="https://cdn.worldvectorlogo.com/logos/github-icon-2.svg" class="icon" alt="GitHub Logo">GitHub Profile</a></li>
-                    <li><a href="https://www.linkedin.com/in/arham-salman12d" target="_blank">
-                        <img src="https://static.vecteezy.com/system/resources/previews/023/986/970/non_2x/linkedin-logo-linkedin-logo-transparent-linkedin-icon-transparent-free-free-png.png" class="icon" alt="LinkedIn Logo">LinkedIn</a></li>
-                </ul>
-            </section>
-
             <section id="contact">
                 <h2>Contact Information</h2>
-                <ul class="contact-list">
+                <ul>
                     <li>Email: <a href="mailto:arham.salman@uth.tmc.edu">arham.salman@uth.tmc.edu</a></li>
                     <li>Phone: 281-650-5936</li>
                     <li><a href="assets/Resume.pdf" target="_blank">View My Resume</a></li>
