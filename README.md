@@ -67,7 +67,7 @@
             left: 0;
         }
         a {
-            color: #BF5700;
+            color: #000;
             text-decoration: none;
         }
         a:hover {
@@ -83,6 +83,12 @@
             margin-top: 10px;
             font-size: 1.2em;
             color: #555;
+        }
+        .icon {
+            width: 20px;
+            height: 20px;
+            vertical-align: middle;
+            margin-right: 5px;
         }
     </style>
 </head>
@@ -127,8 +133,16 @@
             <section id="links">
                 <h2>Links</h2>
                 <ul>
-                    <li><a href="https://github.com/arhamsalman" target="_blank">GitHub Profile</a></li>
-                    <li><a href="https://linkedin.com/in/arhamsalman" target="_blank">LinkedIn</a></li>
+                    <li><img src="assets/github-logo.png" class="icon" alt="GitHub Logo"><a href="https://github.com/arhamsalman" target="_blank">GitHub Profile</a></li>
+                    <li><img src="assets/linkedin-logo.png" class="icon" alt="LinkedIn Logo"><a href="https://linkedin.com/in/arhamsalman" target="_blank">LinkedIn</a></li>
+                </ul>
+            </section>
+
+            <section id="contact">
+                <h2>Contact Information</h2>
+                <ul>
+                    <li>Email: <a href="mailto:arham.salman@uth.tmc.edu">arham.salman@uth.tmc.edu</a></li>
+                    <li>Phone: 281-650-5036</li>
                 </ul>
             </section>
         </div>
