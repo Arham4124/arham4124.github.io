@@ -97,8 +97,8 @@
             object-fit: cover;
         }
         .icon.linkedin {
-            width: 30px;
-            height: 30px;
+            width: 32px;
+            height: 32px;
         }
     </style>
 </head>
