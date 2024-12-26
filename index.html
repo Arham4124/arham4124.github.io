@@ -127,8 +127,20 @@
                 <h2>Projects</h2>
                 <ul>
                     <li><a href="assets/Big Data Soccer Team Analysis Project" download>Big Data Soccer Team Analysis</a></li>
-                    <li><a href="assets/NHANES poster.pptx" download>Exploring the Link Between Household Income And Cardiovascular Disease</a></li>
+                    <li><a href="assets/nhanes.Rmd" download>Exploring the Link Between Household Income And Cardiovascular Disease</a></li>
                     <li><a href="assets/FINAL poster temp.pptx" download>Navajo Reservation Preservation Program</a></li>
+                </ul>
+            </section>
+
+            <section id="links">
+                <h2>Links</h2>
+                <ul>
+                    <li><a href="https://github.com/Arham4124" target="_blank">
+                        <img src="https://cdn.worldvectorlogo.com/logos/github-icon-2.svg" class="icon" alt="GitHub Logo">GitHub Profile</a></li>
+                    <li><a href="https://www.linkedin.com/in/arham-salman12d" target="_blank">
+                        <img src="https://static.vecteezy.com/system/resources/previews/023/986/970/non_2x/linkedin-logo-linkedin-logo-transparent-linkedin-icon-transparent-free-free-png.png" class="icon" alt="LinkedIn Logo">LinkedIn</a></li>
+                    <li><a href="https://orcid.org/0009-0004-3579-8849" target="_blank">
+                        <img src="https://becker.wustl.edu/wp-content/uploads/orcid.png" class="icon" alt="ORCID Logo">0009-0004-3579-8849</a></li>
                 </ul>
             </section>
         </div>
