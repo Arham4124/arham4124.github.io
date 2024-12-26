@@ -86,10 +86,12 @@
             width: 100%;
         }
         .icon {
-            width: 24px;
-            height: 24px;
+            width: 32px;
+            height: 32px;
             vertical-align: middle;
             margin-right: 10px;
+            border-radius: 50%;
+            object-fit: cover;
         }
     </style>
 </head>
