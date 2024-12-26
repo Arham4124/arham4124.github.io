@@ -26,19 +26,27 @@
         }
         main {
             display: flex;
-            max-width: 1200px;
+            max-width: 1400px;
             width: 100%;
             gap: 20px;
             padding: 20px;
         }
         .column {
-            flex: 1;
             background-color: white;
             border-radius: 8px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             padding: 20px;
             display: flex;
             flex-direction: column;
+        }
+        .left-column {
+            flex: 1;
+        }
+        .middle-column {
+            flex: 2;
+        }
+        .right-column {
+            flex: 1;
         }
         h2 {
             color: #BF5700;
@@ -91,14 +99,14 @@
     </header>
 
     <main>
-        <div class="column">
+        <div class="column left-column">
             <section class="profile">
                 <img src="assets/Screenshot 2024-12-25 165858.png" alt="Arham Salman">
                 <p>Hello! I'm Arham Salman, a first-year Master's student in Biostatistics & Data Science at UTHealth Houston. My ambitions in Public Health aim to curtail disparities in healthcare treatment and accessibility for low-income and marginalized populations.</p>
             </section>
         </div>
 
-        <div class="column">
+        <div class="column middle-column">
             <section id="education">
                 <h2>Education</h2>
                 <ul>
@@ -124,7 +132,7 @@
             </section>
         </div>
 
-        <div class="column">
+        <div class="column right-column">
             <section id="hobbies">
                 <h2>Hobbies</h2>
                 <ul>
