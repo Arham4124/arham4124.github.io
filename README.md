@@ -80,8 +80,8 @@
             font-size: 1em;
         }
         .icon {
-            width: 20px;
-            height: 20px;
+            width: 24px;
+            height: 24px;
             vertical-align: middle;
             margin-right: 10px;
         }
@@ -128,8 +128,10 @@
             <section id="links">
                 <h2>Links</h2>
                 <ul>
-                    <li><img src="assets/github-logo.png" class="icon" alt="GitHub Logo"><a href="https://github.com/arhamsalman" target="_blank">GitHub Profile</a></li>
-                    <li><img src="assets/linkedin-logo.png" class="icon" alt="LinkedIn Logo"><a href="https://linkedin.com/in/arhamsalman" target="_blank">LinkedIn</a></li>
+                    <li><a href="https://github.com/arhamsalman" target="_blank">
+                        <img src="https://cdn.worldvectorlogo.com/logos/github-icon-2.svg" class="icon" alt="GitHub Logo">GitHub Profile</a></li>
+                    <li><a href="https://linkedin.com/in/arhamsalman" target="_blank">
+                        <img src="https://static.vecteezy.com/system/resources/previews/023/986/970/non_2x/linkedin-logo-linkedin-logo-transparent-linkedin-icon-transparent-free-free-png.png" class="icon" alt="LinkedIn Logo">LinkedIn</a></li>
                 </ul>
             </section>
 
