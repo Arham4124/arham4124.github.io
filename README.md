@@ -125,6 +125,29 @@
                 </ul>
             </section>
 
+            <section id="hobbies-languages-skills">
+                <h2>Hobbies, Languages, and Technical Skills</h2>
+                <h3>Hobbies</h3>
+                <ul>
+                    <li>Basketball</li>
+                    <li>Gaming</li>
+                    <li>Fashion</li>
+                    <li>Trying New Foods</li>
+                </ul>
+                <h3>Languages</h3>
+                <ul>
+                    <li>English</li>
+                    <li>Urdu</li>
+                </ul>
+                <h3>Technical Skills</h3>
+                <ul>
+                    <li>Python</li>
+                    <li>R</li>
+                    <li>Stata</li>
+                    <li>Microsoft Excel/Word/PowerPoint</li>
+                </ul>
+            </section>
+
             <section id="links">
                 <h2>Links</h2>
                 <ul>
