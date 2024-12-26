@@ -127,7 +127,7 @@
                 <h2>Projects</h2>
                 <ul>
                     <li><a href="assets/Big Data Soccer Team Analysis Project" download>Big Data Soccer Team Analysis</a></li>
-                    <li><a href="assets/nhanes.Rmd" download>Exploring the Link Between Household Income And Cardiovascular Disease</a></li>
+                    <li><a href="assets/NHANES poster.pptx" download>Exploring the Link Between Household Income And Cardiovascular Disease</a></li>
                     <li><a href="assets/FINAL poster temp.pptx" download>Navajo Reservation Preservation Program</a></li>
                 </ul>
             </section>
