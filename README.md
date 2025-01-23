@@ -179,6 +179,8 @@
                     <li>Python</li>
                     <li>R</li>
                     <li>Stata</li>
+                    <li>SAS</li>
+                    <li>SQL</li>
                     <li>Microsoft Excel/Word/PowerPoint</li>
                 </ul>
             </section>
