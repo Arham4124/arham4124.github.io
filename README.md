@@ -156,12 +156,13 @@
 
         <div class="column right-column">
             <section id="hobbies">
-                <h2>Hobbies</h2>
+                <h2>Research Interests</h2>
                 <ul>
-                    <li>Basketball</li>
-                    <li>Gaming</li>
-                    <li>Fashion</li>
-                    <li>Trying New Foods</li>
+                    <li>Neuroimaging</li>
+                    <li>Machine Learning</li>
+                    <li>Neurodegenerative Disease Pathology</li>
+                    <li>Deep Learning</li>
+                    <li>Artificial Intelligence</li>
                 </ul>
             </section>
 
