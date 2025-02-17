@@ -155,7 +155,7 @@
         </div>
 
         <div class="column right-column">
-            <section id="hobbies">
+            <section id="Research Interests">
                 <h2>Research Interests</h2>
                 <ul>
                     <li>Neuroimaging</li>
