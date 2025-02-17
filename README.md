@@ -124,8 +124,8 @@
                 </ul>
             </section>
 
-            <section id="research">
-                <h2>Research</h2>
+            <section id="experience">
+                <h2>Experience</h2>
                 <ul>
                     <li>Biostatistics Research Intern - UTMB Summer Institute of Biostatistics and Data Science (2023)</li>
                     <li>Data Analyst Intern - UT SHIFT (2023)</li>
