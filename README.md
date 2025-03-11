@@ -191,7 +191,7 @@
                 <ul>
                     <li>Email: <a href="mailto:arham.salman@uth.tmc.edu">arham.salman@uth.tmc.edu</a></li>
                     <li>Phone: 281-650-5936</li>
-                    <li><a href="assets/Resume.pdf" target="_blank">View My Resume</a></li>
+                    <li><a href="assets/Salman, Arham - Resume.pdf" target="_blank">View My Resume</a></li>
                 </ul>
             </section>
         </div>
