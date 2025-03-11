@@ -110,7 +110,7 @@
     <main>
         <div class="column left-column">
             <section class="profile">
-                <img src="assets/Screenshot 2024-12-25 165858.png" alt="Arham Salman">
+                <img src="assets/grad.jfif" alt="Arham Salman">
                 <p>Hello! I'm Arham Salman, a first-year Master's student in Biostatistics & Data Science at UTHealth Houston. My ambitions in Public Health aim to curtail disparities in healthcare treatment and accessibility for low-income and marginalized populations.</p>
             </section>
         </div>
