@@ -129,6 +129,7 @@
                 <ul>
                     <li>Biostatistics Research Intern - UTMB Summer Institute of Biostatistics and Data Science (2023)</li>
                     <li>Data Analyst Intern - UT SHIFT (2023)</li>
+                    <li>Graduate Research Assistant - UTHealth SA Ma Lab (2025)</li>
                 </ul>
             </section>
 
