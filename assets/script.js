@@ -94,5 +94,40 @@
     }
   }
   loadRepos();
-})();
 
+  // Reveal on scroll (slide transitions)
+  function setupReveal() {
+    const heroText = document.querySelector('.hero-text');
+    const heroMedia = document.querySelector('.hero-media');
+    heroText && heroText.classList.add('reveal', 'slide-left');
+    heroMedia && heroMedia.classList.add('reveal', 'slide-right');
+
+    // Mark common elements
+    const groups = [
+      Array.from(document.querySelectorAll('.section h2')),
+      Array.from(document.querySelectorAll('.timeline-item')),
+      Array.from(document.querySelectorAll('.project.card')),
+      Array.from(document.querySelectorAll('.cards .card')),
+    ];
+
+    groups.forEach(list => {
+      list.forEach((el, i) => {
+        el.classList.add('reveal');
+        if (el.matches('.timeline-item')) el.classList.add('slide-left');
+        el.style.setProperty('--reveal-delay', `${Math.min(i * 70, 420)}ms`);
+      });
+    });
+
+    const revObs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('is-visible');
+          revObs.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+
+    document.querySelectorAll('.reveal').forEach(el => revObs.observe(el));
+  }
+  setupReveal();
+})();
