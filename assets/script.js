@@ -222,8 +222,8 @@
   function setupOfficePreviews() {
     const frames = Array.from(document.querySelectorAll('iframe.office-frame[data-file]'));
     if (!frames.length) return;
-    const isHttp = location.protocol === 'http:' || location.protocol === 'https:';
-    if (!isHttp) {
+    const isHosted = (location.protocol === 'http:' || location.protocol === 'https:') && /github\.io$/i.test(location.host);
+    if (!isHosted) {
       frames.forEach(frame => {
         const wrap = frame.parentElement;
         const msg = document.createElement('div');
@@ -231,6 +231,17 @@
         msg.style.marginTop = '0.5rem';
         msg.textContent = 'Preview available on the published site. Use Download to view locally.';
         wrap.replaceChild(msg, frame);
+      });
+      // Still set "Open Online Preview" buttons to Office viewer using absolute file URLs
+      document.querySelectorAll('.office-open').forEach(btn => {
+        const card = btn.closest('.card');
+        const df = card && card.querySelector('iframe.office-frame[data-file]');
+        if (!df) return;
+        try {
+          const abs = new URL(df.getAttribute('data-file'), window.location.href).href;
+          const viewer = 'https://view.officeapps.live.com/op/embed.aspx?src=' + encodeURIComponent(abs);
+          btn.href = viewer;
+        } catch {}
       });
       return;
     }
@@ -243,6 +254,17 @@
       } catch (e) {
         // ignore
       }
+    });
+    // Also wire "Open Online Preview" buttons to the same viewer URL
+    document.querySelectorAll('.office-open').forEach(btn => {
+      const card = btn.closest('.card');
+      const df = card && card.querySelector('iframe.office-frame[data-file]');
+      if (!df) return;
+      try {
+        const abs = new URL(df.getAttribute('data-file'), window.location.origin).href;
+        const viewer = 'https://view.officeapps.live.com/op/embed.aspx?src=' + encodeURIComponent(abs);
+        btn.href = viewer;
+      } catch {}
     });
   }
   setupOfficePreviews();
