@@ -217,4 +217,33 @@
     window.addEventListener('beforeunload', () => cancelAnimationFrame(rafId));
   }
   setupParticles();
+
+  // Initialize Office web previews only on http(s) origins
+  function setupOfficePreviews() {
+    const frames = Array.from(document.querySelectorAll('iframe.office-frame[data-file]'));
+    if (!frames.length) return;
+    const isHttp = location.protocol === 'http:' || location.protocol === 'https:';
+    if (!isHttp) {
+      frames.forEach(frame => {
+        const wrap = frame.parentElement;
+        const msg = document.createElement('div');
+        msg.className = 'card-sub';
+        msg.style.marginTop = '0.5rem';
+        msg.textContent = 'Preview available on the published site. Use Download to view locally.';
+        wrap.replaceChild(msg, frame);
+      });
+      return;
+    }
+    frames.forEach(frame => {
+      try {
+        const relative = frame.getAttribute('data-file');
+        const abs = new URL(relative, window.location.origin).href;
+        const viewer = 'https://view.officeapps.live.com/op/embed.aspx?src=' + encodeURIComponent(abs);
+        frame.src = viewer;
+      } catch (e) {
+        // ignore
+      }
+    });
+  }
+  setupOfficePreviews();
 })();
