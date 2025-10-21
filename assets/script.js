@@ -6,6 +6,7 @@
   const themeToggle = document.getElementById('theme-toggle');
   const navToggle = document.querySelector('.nav-toggle');
   const navLinks = document.querySelector('.nav-links');
+  const prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)');
 
   function applyTheme(theme) {
     if (theme === 'light') {
@@ -130,4 +131,90 @@
     document.querySelectorAll('.reveal').forEach(el => revObs.observe(el));
   }
   setupReveal();
+
+  // Animated particles background (subtle, disabled with reduced motion)
+  function setupParticles() {
+    if (prefersReduced.matches) return;
+    const canvas = document.getElementById('bg-canvas');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    let dpr = Math.min(window.devicePixelRatio || 1, 2);
+    let w, h, particles = [], rafId;
+
+    function resize() {
+      w = canvas.width = Math.floor(window.innerWidth * dpr);
+      h = canvas.height = Math.floor(window.innerHeight * dpr);
+      canvas.style.width = window.innerWidth + 'px';
+      canvas.style.height = window.innerHeight + 'px';
+      spawn();
+    }
+
+    function spawn() {
+      const count = Math.min(100, Math.max(40, Math.floor((window.innerWidth * window.innerHeight) / 20000)));
+      particles = Array.from({ length: count }).map(() => ({
+        x: Math.random() * w,
+        y: Math.random() * h,
+        vx: (Math.random() - 0.5) * 0.12 * dpr,
+        vy: (Math.random() - 0.5) * 0.12 * dpr,
+        r: Math.random() * 1.6 + 0.6,
+      }));
+    }
+
+    let mx = -9999, my = -9999;
+    window.addEventListener('mousemove', (e) => { mx = e.clientX * dpr; my = e.clientY * dpr; });
+    window.addEventListener('mouseleave', () => { mx = my = -9999; });
+
+    function step() {
+      ctx.clearRect(0, 0, w, h);
+      for (let i = 0; i < particles.length; i++) {
+        const p = particles[i];
+        p.x += p.vx; p.y += p.vy;
+        if (p.x < 0 || p.x > w) p.vx *= -1;
+        if (p.y < 0 || p.y > h) p.vy *= -1;
+
+        // Draw particle
+        ctx.beginPath();
+        ctx.fillStyle = 'rgba(255,255,255,0.35)';
+        ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Connect to mouse
+        const dxm = p.x - mx, dym = p.y - my;
+        const dm2 = dxm * dxm + dym * dym;
+        if (dm2 < (180 * dpr) * (180 * dpr)) {
+          ctx.strokeStyle = 'rgba(255,255,255,0.10)';
+          ctx.lineWidth = 1;
+          ctx.beginPath();
+          ctx.moveTo(p.x, p.y);
+          ctx.lineTo(mx, my);
+          ctx.stroke();
+        }
+
+        // Connect to neighbors
+        for (let j = i + 1; j < particles.length; j++) {
+          const q = particles[j];
+          const dx = p.x - q.x, dy = p.y - q.y;
+          const d2 = dx * dx + dy * dy;
+          if (d2 < (120 * dpr) * (120 * dpr)) {
+            const a = Math.max(0, 1 - d2 / ((120 * dpr) * (120 * dpr)));
+            ctx.strokeStyle = `rgba(255,255,255,${0.08 * a})`;
+            ctx.lineWidth = 1;
+            ctx.beginPath();
+            ctx.moveTo(p.x, p.y);
+            ctx.lineTo(q.x, q.y);
+            ctx.stroke();
+          }
+        }
+      }
+      rafId = requestAnimationFrame(step);
+    }
+
+    resize();
+    window.addEventListener('resize', resize);
+    step();
+
+    // Cleanup on hot reloads (if any)
+    window.addEventListener('beforeunload', () => cancelAnimationFrame(rafId));
+  }
+  setupParticles();
 })();
