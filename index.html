@@ -142,12 +142,21 @@
                         <div class="card-title">Permutation Test</div>
                         <div class="card-sub">Analysis of rs133381</div>
                         
-                        <div style="margin-top: 1rem; width: 50%; margin-left: auto; margin-right: auto; background: var(--panel); border: 1px solid var(--border); border-radius: 8px; overflow: hidden;">
-                            <a href="assets/rs133381_permutation_test.png" target="_blank" rel="noopener">
-                                <img src="assets/rs133381_permutation_test.png" 
-                                     alt="Permutation Test Analysis Preview" 
-                                     style="width: 100%; height: auto; display: block;">
-                            </a>
+                        <div style="margin-top: 1rem; width: 50%; margin-left: auto; margin-right: auto;">
+                            <div style="background: var(--panel); border: 1px solid var(--border); border-radius: 8px; overflow: hidden;">
+                                <a href="assets/rs133381_permutation_test.png" target="_blank" rel="noopener">
+                                    <img src="assets/rs133381_permutation_test.png" 
+                                         alt="Permutation Test Analysis Preview" 
+                                         style="width: 100%; height: auto; display: block;">
+                                </a>
+                            </div>
+                            
+                            <p style="margin-top: 0.75rem; font-size: 0.85rem; line-height: 1.5; color: var(--text-muted); text-align: justify;">
+                                <strong>rs133381</strong> shows an observed ChIP-seq signal score of 2.602, which is significantly higher than expected by chance. 
+                                The y-axis of the permutation histogram represents the frequency of permutations and the x-axis represents the ChIP-seq signal score. 
+                                The green line (observed value) falls beyond the red significance threshold, indicating priority ($p = 1.94 \times 10^{-6}$). 
+                                This SNP is ranked #4 by observed score and remains prioritized after the chromatin-state filter, passing the stringent FDR threshold of 0.0001 used in the analysis.
+                            </p>
                         </div>
 
                         <div style="margin-top: 0.5rem; text-align: right;">
@@ -189,57 +198,3 @@
                             <li class="badge">SQL</li>
                         </ul>
                     </div>
-                    <div>
-                        <h3 class="subheading">Other</h3>
-                        <ul class="badges">
-                            <li class="badge">Microsoft Excel</li>
-                            <li class="badge">Word</li>
-                            <li class="badge">PowerPoint</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="contact" class="section">
-            <div class="container">
-                <h2>Contact</h2>
-                <div class="contact-grid">
-                    <div>
-                        <p>Email: <a href="mailto:arham.salman@uth.tmc.edu">arham.salman@uth.tmc.edu</a></p>
-                        <p>Phone: <a href="tel:+12816505936">+1 (281) 650-5936</a></p>
-                    </div>
-                    <form class="contact-form" action="mailto:arham.salman@uth.tmc.edu" method="post"
-                        enctype="text/plain">
-                        <label>
-                            <span>Name</span>
-                            <input type="text" name="name" required />
-                        </label>
-                        <label>
-                            <span>Email</span>
-                            <input type="email" name="email" required />
-                        </label>
-                        <label>
-                            <span>Message</span>
-                            <textarea name="message" rows="4" required></textarea>
-                        </label>
-                        <button type="submit" class="btn primary">Send</button>
-                    </form>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="site-footer">
-        <div class="container">
-            <span>&copy; 2024 Arham Salman</span>
-            <span class="spacer">•</span>
-            <a href="#home">Back to top</a>
-        </div>
-    </footer>
-
-    <script>window.GITHUB_USERNAME = 'Arham4124';</script>
-    <script src="assets/script.js" defer></script>
-</body>
-
-</html>
