@@ -1,251 +1,269 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Arham Salman — Portfolio</title>
-  <meta name="description" content="Portfolio of Arham Salman — MS Biostatistics & Data Science at UTHealth Houston. Projects, research, experience, and contact." />
-  <meta property="og:title" content="Arham Salman — Portfolio" />
-  <meta property="og:description" content="Projects, research, and experience in biostatistics, machine learning, and public health." />
-  <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://arham4124.github.io/" />
-  <meta name="theme-color" content="#BF5700" />
-  <link rel="stylesheet" href="assets/styles.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Arham Salman — Portfolio</title>
+    <meta name="description"
+        content="Portfolio of Arham Salman — MS Biostatistics & Data Science at UTHealth Houston. Projects, research, experience, and contact." />
+    <meta property="og:title" content="Arham Salman — Portfolio" />
+    <meta property="og:description"
+        content="Projects, research, and experience in biostatistics, machine learning, and public health." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://arham4124.github.io/" />
+    <meta name="theme-color" content="#BF5700" />
+    <link rel="stylesheet" href="assets/styles.css" />
 </head>
+
 <body>
-  <canvas id="bg-canvas" class="bg-canvas" aria-hidden="true"></canvas>
-  <header class="site-header">
-    <div class="container nav">
-      <a class="brand" href="#home">AS</a>
-      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
-      <nav class="nav-links" aria-label="Primary">
-        <a href="#about">About</a>
-        <a href="#education">Education</a>
-        <a href="#experience">Experience</a>
-        <a href="#projects">Projects</a>
-        <a href="#skills">Skills</a>
-        <a href="#contact">Contact</a>
-        <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">🌙</button>
-      </nav>
-    </div>
-  </header>
 
-  <main id="home">
-    <section class="hero">
-      <div class="container hero-grid">
-        <div class="hero-text">
-          <h1>Arham Salman</h1>
-          <p>Second-year MS Biostatistics & Data Science at UTHealth Houston. Passionate about AI for Science and DNA foundational models; my ambitions are to discover the potential of AI in scientific discoveries.</p>
-          <div class="cta-row">
-            <a class="btn primary" href="#projects">View Projects</a>
-            <a class="btn" href="assets/Salman_Arham_CV.pdf" target="_blank" rel="noopener">CV</a>
-          </div>
-          <div class="socials">
-            <a href="https://github.com/Arham4124" target="_blank" rel="noopener" aria-label="GitHub">GitHub</a>
-            <a href="https://www.linkedin.com/in/arham-salman12d" target="_blank" rel="noopener" aria-label="LinkedIn">LinkedIn</a>
-            <a href="https://orcid.org/0009-0004-3579-8849" target="_blank" rel="noopener" aria-label="ORCID">ORCID</a>
-          </div>
+    <header class="site-header">
+        <div class="container nav">
+            <a class="brand" href="#home">AS</a>
+            <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">☰</button>
+            <nav class="nav-links" aria-label="Primary">
+                <a href="#about">About</a>
+                <a href="#education">Education</a>
+                <a href="#experience">Experience</a>
+                <a href="#projects">Projects</a>
+                <a href="#skills">Skills</a>
+                <a href="#contact">Contact</a>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+            </nav>
         </div>
-        <div class="hero-media">
-          <img src="assets/grad.png" alt="Portrait of Arham Salman"/>
-        </div>
-      </div>
-    </section>
+    </header>
 
-    <section id="about" class="section">
-      <div class="container">
-        <h2>About</h2>
-        <p>Hello! I'm Arham Salman, a second-year Master's student in Biostatistics & Data Science at UTHealth Houston. My ambitions are to discover the potential of AI in scientific discoveries, with a current focus on AI for Science and DNA foundational models.</p>
-
-        <h3 class="subheading">About Me</h3>
-        <div class="grid three">
-          <div class="card">
-            <div class="card-title">Graduate Research Assistant</div>
-            <div class="card-sub">MD Anderson Cancer Center — Wu Lab (2025)</div>
-            <p style="margin-top:0.4rem">Contributed to data-driven analyses and machine learning workflows supporting research objectives.</p>
-          </div>
-          <div class="card">
-            <div class="card-title">Graduate Research Assistant</div>
-            <div class="card-sub">UTHealth SA — Ma Lab (2025)</div>
-            <p style="margin-top:0.4rem">Supported statistical modeling and reproducible analysis across active projects.</p>
-          </div>
-          <div class="card">
-            <div class="card-title">Data Analyst Intern</div>
-            <div class="card-sub">GET PHIT (2025)</div>
-            <p style="margin-top:0.4rem">Contributed to program efforts and poster work, applying data and communication skills.</p>
-          </div>
-          <div class="card">
-            <div class="card-title">Biostatistics Research Intern</div>
-            <div class="card-sub">UTMB SIBDS (2023)</div>
-            <p style="margin-top:0.4rem">Applied statistical methods to public health data and communicated findings.</p>
-          </div>
-          <div class="card">
-            <div class="card-title">Data Analyst Intern</div>
-            <div class="card-sub">UT SHIFT (2023)</div>
-            <p style="margin-top:0.4rem">Built analyses and visuals to inform program insights and decisions.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="education" class="section">
-      <div class="container">
-        <h2>Education</h2>
-        <ul class="cards">
-          <li class="card">
-            <div class="card-title">M.S. Biostatistics & Data Science</div>
-            <div class="card-sub">UTHealth Houston • 2024–2026</div>
-          </li>
-          <li class="card">
-            <div class="card-title">B.S. Public Health</div>
-            <div class="card-sub">The University of Texas at Austin • 2020–2024</div>
-          </li>
-        </ul>
-      </div>
-    </section>
-
-    <section id="experience" class="section">
-      <div class="container">
-        <h2>Experience</h2>
-        <ol class="timeline">
-          <li class="timeline-item">
-            <div class="timeline-point"></div>
-            <div class="timeline-content">
-              <div class="card-title">Graduate Research Assistant</div>
-              <div class="card-sub">UTHealth SA — Ma Lab • 2025</div>
+    <main id="home">
+        <section class="hero">
+            <div class="container hero-grid">
+                <div class="hero-text">
+                    <h1>Arham Salman</h1>
+                    <p>Second-year MS Biostatistics & Data Science at UTHealth Houston. Passionate about AI for Science
+                        and DNA foundational models; my ambitions are to discover the potential of AI in scientific
+                        discoveries.</p>
+                    <div class="cta-row">
+                        <a class="btn primary" href="#projects">View Projects</a>
+                        <a class="btn" href="assets/Salman_Arham_CV.pdf" target="_blank" rel="noopener">CV</a>
+                    </div>
+                    <div class="socials">
+                        <a href="https://github.com/Arham4124" target="_blank" rel="noopener"
+                            aria-label="GitHub">GitHub</a>
+                        <a href="https://www.linkedin.com/in/arham-salman12d" target="_blank" rel="noopener"
+                            aria-label="LinkedIn">LinkedIn</a>
+                        <a href="https://orcid.org/0009-0004-3579-8849" target="_blank" rel="noopener"
+                            aria-label="ORCID">ORCID</a>
+                    </div>
+                </div>
+                <div class="hero-media">
+                    <img src="assets/grad.png" alt="Portrait of Arham Salman" />
+                </div>
             </div>
-          </li>
-          <li class="timeline-item">
-            <div class="timeline-point"></div>
-            <div class="timeline-content">
-              <div class="card-title">Data Analyst Intern</div>
-              <div class="card-sub">GET PHIT • 2025</div>
+        </section>
+
+        <section id="about" class="section">
+            <div class="container">
+                <h2>About</h2>
+                <p>Hello! I'm Arham Salman, a second-year Master's student in Biostatistics & Data Science at UTHealth
+                    Houston. My ambitions are to discover the potential of AI in scientific discoveries, with a current
+                    focus on AI for Science and DNA foundational models.</p>
+
+                <h3 class="subheading">About Me</h3>
+                <div class="grid three">
+                    <div class="card">
+                        <div class="card-title">Graduate Research Assistant</div>
+                        <div class="card-sub">MD Anderson Cancer Center — Wu Lab (2025)</div>
+                        <p style="margin-top:0.4rem">Contributed to data-driven analyses and machine learning workflows
+                            supporting research objectives.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">Graduate Research Assistant</div>
+                        <div class="card-sub">UTHealth SA — Ma Lab (2025)</div>
+                        <p style="margin-top:0.4rem">Supported statistical modeling and reproducible analysis across
+                            active projects.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">Data Analyst Intern</div>
+                        <div class="card-sub">GET PHIT (2025)</div>
+                        <p style="margin-top:0.4rem">Contributed to program efforts and poster work, applying data and
+                            communication skills.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">Biostatistics Research Intern</div>
+                        <div class="card-sub">UTMB SIBDS (2023)</div>
+                        <p style="margin-top:0.4rem">Applied statistical methods to public health data and communicated
+                            findings.</p>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">Data Analyst Intern</div>
+                        <div class="card-sub">UT SHIFT (2023)</div>
+                        <p style="margin-top:0.4rem">Built analyses and visuals to inform program insights and
+                            decisions.</p>
+                    </div>
+                </div>
             </div>
-          </li>
-          <li class="timeline-item">
-            <div class="timeline-point"></div>
-            <div class="timeline-content">
-              <div class="card-title">Graduate Research Assistant</div>
-              <div class="card-sub">MD Anderson Cancer Center — Wu Lab • 2025</div>
+        </section>
+
+        <section id="education" class="section">
+            <div class="container">
+                <h2>Education</h2>
+                <ul class="cards">
+                    <li class="card">
+                        <div class="card-title">M.S. Biostatistics & Data Science</div>
+                        <div class="card-sub">UTHealth Houston • 2024–2026</div>
+                    </li>
+                    <li class="card">
+                        <div class="card-title">B.S. Public Health</div>
+                        <div class="card-sub">The University of Texas at Austin • 2020–2024</div>
+                    </li>
+                </ul>
             </div>
-          </li>
-          <li class="timeline-item">
-            <div class="timeline-point"></div>
-            <div class="timeline-content">
-              <div class="card-title">Biostatistics Research Intern</div>
-              <div class="card-sub">UTMB Summer Institute of Biostatistics & Data Science • 2023</div>
+        </section>
+
+        <section id="experience" class="section">
+            <div class="container">
+                <h2>Experience</h2>
+                <ol class="timeline">
+                    <li class="timeline-item">
+                        <div class="timeline-point"></div>
+                        <div class="timeline-content">
+                            <div class="card-title">Graduate Research Assistant</div>
+                            <div class="card-sub">UTHealth SA — Ma Lab • 2025</div>
+                        </div>
+                    </li>
+                    <li class="timeline-item">
+                        <div class="timeline-point"></div>
+                        <div class="timeline-content">
+                            <div class="card-title">Data Analyst Intern</div>
+                            <div class="card-sub">GET PHIT • 2025</div>
+                        </div>
+                    </li>
+                    <li class="timeline-item">
+                        <div class="timeline-point"></div>
+                        <div class="timeline-content">
+                            <div class="card-title">Graduate Research Assistant</div>
+                            <div class="card-sub">MD Anderson Cancer Center — Wu Lab • 2025</div>
+                        </div>
+                    </li>
+                    <li class="timeline-item">
+                        <div class="timeline-point"></div>
+                        <div class="timeline-content">
+                            <div class="card-title">Biostatistics Research Intern</div>
+                            <div class="card-sub">UTMB Summer Institute of Biostatistics & Data Science • 2023</div>
+                        </div>
+                    </li>
+                    <li class="timeline-item">
+                        <div class="timeline-point"></div>
+                        <div class="timeline-content">
+                            <div class="card-title">Data Analyst Intern</div>
+                            <div class="card-sub">UT SHIFT • 2023</div>
+                        </div>
+                    </li>
+                </ol>
             </div>
-          </li>
-          <li class="timeline-item">
-            <div class="timeline-point"></div>
-            <div class="timeline-content">
-              <div class="card-title">Data Analyst Intern</div>
-              <div class="card-sub">UT SHIFT • 2023</div>
+        </section>
+
+        <section id="projects" class="section">
+            <div class="container">
+                <h2>Projects</h2>
+                <div class="grid">
+                    <a class="project card" href="assets/Big Data Soccer Team Analysis Project" download>
+                        <div class="card-title">Big Data Soccer Team Analysis</div>
+                        <div class="card-sub">Exploratory analysis and insights</div>
+                    </a>
+                    <a class="project card" href="assets/nhanes.Rmd" download>
+                        <div class="card-title">Income & Cardiovascular Disease</div>
+                        <div class="card-sub">NHANES-based R analysis</div>
+                    </a>
+                </div>
+
+
+
+                <h3 class="subheading" style="margin-top:1rem">Posters</h3>
+                <div class="grid three">
+                    <a class="card project" href="assets/getphit-poster.pptx" download>
+                        <div class="card-title">GET PHIT Poster</div>
+                        <div class="card-sub">PowerPoint • Download</div>
+                    </a>
+                    <a class="card project" href="assets/NHANES poster.pptx" download>
+                        <div class="card-title">NHANES Poster</div>
+                        <div class="card-sub">PowerPoint • Download</div>
+                    </a>
+                    <a class="card project" href="assets/FINAL poster temp.pptx" download>
+                        <div class="card-title">Navajo Intervention Program</div>
+                        <div class="card-sub">PowerPoint • Download</div>
+                    </a>
+                </div>
             </div>
-          </li>
-        </ol>
-      </div>
-    </section>
+        </section>
 
-    <section id="projects" class="section">
-      <div class="container">
-        <h2>Projects</h2>
-        <div class="grid">
-          <a class="project card" href="assets/Big Data Soccer Team Analysis Project" download>
-            <div class="card-title">Big Data Soccer Team Analysis</div>
-            <div class="card-sub">Exploratory analysis and insights</div>
-          </a>
-          <a class="project card" href="assets/nhanes.Rmd" download>
-            <div class="card-title">Income & Cardiovascular Disease</div>
-            <div class="card-sub">NHANES-based R analysis</div>
-          </a>
+
+
+        <section id="skills" class="section">
+            <div class="container">
+                <h2>Skills & Tools</h2>
+                <div class="grid two">
+                    <div>
+                        <h3 class="subheading">Languages</h3>
+                        <ul class="badges">
+                            <li class="badge">Python</li>
+                            <li class="badge">R</li>
+                            <li class="badge">Stata</li>
+                            <li class="badge">SAS</li>
+                            <li class="badge">SQL</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="subheading">Other</h3>
+                        <ul class="badges">
+                            <li class="badge">Microsoft Excel</li>
+                            <li class="badge">Word</li>
+                            <li class="badge">PowerPoint</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="section">
+            <div class="container">
+                <h2>Contact</h2>
+                <div class="contact-grid">
+                    <div>
+                        <p>Email: <a href="mailto:arham.salman@uth.tmc.edu">arham.salman@uth.tmc.edu</a></p>
+                        <p>Phone: <a href="tel:+12816505936">+1 (281) 650-5936</a></p>
+                    </div>
+                    <form class="contact-form" action="mailto:arham.salman@uth.tmc.edu" method="post"
+                        enctype="text/plain">
+                        <label>
+                            <span>Name</span>
+                            <input type="text" name="name" required />
+                        </label>
+                        <label>
+                            <span>Email</span>
+                            <input type="email" name="email" required />
+                        </label>
+                        <label>
+                            <span>Message</span>
+                            <textarea name="message" rows="4" required></textarea>
+                        </label>
+                        <button type="submit" class="btn primary">Send</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <span>&copy; 2024 Arham Salman</span>
+            <span class="spacer">•</span>
+            <a href="#home">Back to top</a>
         </div>
+    </footer>
 
-        
-
-        <h3 class="subheading" style="margin-top:1rem">Posters</h3>
-        <div class="grid three">
-          <a class="card project" href="assets/getphit-poster.pptx" download>
-            <div class="card-title">GET PHIT Poster</div>
-            <div class="card-sub">PowerPoint • Download</div>
-          </a>
-          <a class="card project" href="assets/NHANES poster.pptx" download>
-            <div class="card-title">NHANES Poster</div>
-            <div class="card-sub">PowerPoint • Download</div>
-          </a>
-          <a class="card project" href="assets/FINAL poster temp.pptx" download>
-            <div class="card-title">Navajo Intervention Program</div>
-            <div class="card-sub">PowerPoint • Download</div>
-          </a>
-        </div>
-      </div>
-    </section>
-
-    
-
-    <section id="skills" class="section">
-      <div class="container">
-        <h2>Skills & Tools</h2>
-        <div class="grid two">
-          <div>
-            <h3 class="subheading">Languages</h3>
-            <ul class="badges">
-              <li class="badge">Python</li>
-              <li class="badge">R</li>
-              <li class="badge">Stata</li>
-              <li class="badge">SAS</li>
-              <li class="badge">SQL</li>
-            </ul>
-          </div>
-          <div>
-            <h3 class="subheading">Other</h3>
-            <ul class="badges">
-              <li class="badge">Microsoft Excel</li>
-              <li class="badge">Word</li>
-              <li class="badge">PowerPoint</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact" class="section">
-      <div class="container">
-        <h2>Contact</h2>
-        <div class="contact-grid">
-          <div>
-            <p>Email: <a href="mailto:arham.salman@uth.tmc.edu">arham.salman@uth.tmc.edu</a></p>
-            <p>Phone: <a href="tel:+12816505936">+1 (281) 650-5936</a></p>
-          </div>
-          <form class="contact-form" action="mailto:arham.salman@uth.tmc.edu" method="post" enctype="text/plain">
-            <label>
-              <span>Name</span>
-              <input type="text" name="name" required />
-            </label>
-            <label>
-              <span>Email</span>
-              <input type="email" name="email" required />
-            </label>
-            <label>
-              <span>Message</span>
-              <textarea name="message" rows="4" required></textarea>
-            </label>
-            <button type="submit" class="btn primary">Send</button>
-          </form>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container">
-      <span>&copy; 2024 Arham Salman</span>
-      <span class="spacer">•</span>
-      <a href="#home">Back to top</a>
-    </div>
-  </footer>
-
-  <script>window.GITHUB_USERNAME = 'Arham4124';</script>
-  <script src="assets/script.js" defer></script>
+    <script>window.GITHUB_USERNAME = 'Arham4124';</script>
+    <script src="assets/script.js" defer></script>
 </body>
+
 </html>
